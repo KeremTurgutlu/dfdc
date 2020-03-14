@@ -1,0 +1,12 @@
+name: deepfake
+channels:
+- defaults
+dependencies:
+- python
+- nb_conda
+- pip
+- pip:
+    - jupyter
+    - fastai
+    - tensorflow
+    - nbdev
