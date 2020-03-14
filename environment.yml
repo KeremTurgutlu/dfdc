@@ -10,3 +10,5 @@ dependencies:
     - fastai
     - tensorflow
     - nbdev
+    - opencv-python
+    - pretrainedmodels

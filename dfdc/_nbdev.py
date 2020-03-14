@@ -22,14 +22,23 @@ index = {"read_metadata": "00_core.ipynb",
          "generate_face_detections": "12_generate_face_detections.ipynb",
          "save": "13_save_cropped_faces.ipynb",
          "Image.save": "13_save_cropped_faces.ipynb",
-         "save_cropped_faces": "13_save_cropped_faces.ipynb"}
+         "save_cropped_faces": "13_save_cropped_faces.ipynb",
+         "sort_dict": "21_single_frame_model.ipynb",
+         "flatten_df": "20_datasets.ipynb",
+         "convert_cropped_files_todf": "21_single_frame_model.ipynb",
+         "create_frame_label_df": "21_single_frame_model.ipynb",
+         "SingleFrameDataset": "21_single_frame_model.ipynb",
+         "SingleFrameSampler": "21_single_frame_model.ipynb",
+         "SingleFrameValidationDataset": "21_single_frame_model.ipynb"}
 
 modules = ["core/core.py",
            "core/video_core.py",
            "face_detection/bbox_utils.py",
            "face_detection/retinaface.py",
            "face_detection/generate_detections.py",
-           "face_detection/save_cropped_faces.py"]
+           "face_detection/save_cropped_faces.py",
+           "modeling/dataset_utils.py",
+           "modeling/single_frame_model.py"]
 
 doc_url = "https://fastai.github.io/dfdc/"
 

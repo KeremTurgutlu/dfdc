@@ -28,7 +28,7 @@ set_bridge('torch')
 def decord_cpu_video_reader(path, freq=None):
     video = VideoReader(str(path), ctx=cpu())
     len_video = len(video)
-    if freq: t = video.get_batch(range(0, len(video), freq))
+    if freq: t = video.get_batch(range(0, len(video), freq)).permute(0,3,1,2)
     else: t = video.get_batch(range(len_video))
     return t, len_video
 
