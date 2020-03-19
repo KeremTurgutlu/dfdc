@@ -1,3 +1,4 @@
+*.pth
 local_misc/
 *.bak
 .gitattributes

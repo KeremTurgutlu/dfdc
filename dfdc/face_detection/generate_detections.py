@@ -14,9 +14,7 @@ from .retinaface import *
 from fastai.data_block import get_files
 
 # Cell
-@call_parse
-def generate_face_detections(video_directory:Param("Directory of videos", type=str),
-                            dest_fname:Param("Destination to save the detection results dataframe", type=str),
+def generate_face_detections(video_files_txt:Param("csv or txt with list of video paths", type=str),
                             freq:Param("Sample frequency for reading videos", type=int),
                             modelname:Param("Detection model backbone", type=str),
                             confidence_threshold:Param("confidence_threshold", type=float) = 0.5,
@@ -34,7 +32,7 @@ def generate_face_detections(video_directory:Param("Directory of videos", type=s
     model, cfg = get_model(modelname)
 
     # get all video files under dir
-    video_files = get_files(video_directory, extensions=['.mp4'])
+    video_files = list(map(lambda o: Path(o), list(pd.read_csv(video_files_txt).iloc[:,0].values)))
 
     # get face detections
     res = []
@@ -60,7 +58,6 @@ def generate_face_detections(video_directory:Param("Directory of videos", type=s
         video_res["len_video"] = len_video
         res.append(video_res)
 
-    # save results
+    # generate dataframe
     df = pd.DataFrame(res)
-    df.to_csv(dest_fname, index=False)
     return df

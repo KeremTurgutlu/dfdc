@@ -53,8 +53,8 @@ def _crop_and_save(path:PathOrStr, fname:PathOrStr, crop_path:PathOrStr, bboxes:
     return crop_path
 
 # Cell
-@call_parse
-def save_cropped_faces(video_directory:Param("Directory of videos", type=str),
+def save_cropped_faces(data_path:Param("Main data directory"),
+                       video_path:Param("Directory of videos", type=str),
                        face_detections_csv:Param("CSV file which has face detections", type=str)
                         ):
 
@@ -65,7 +65,7 @@ def save_cropped_faces(video_directory:Param("Directory of videos", type=str),
                                           .apply(lambda o: json.loads(o.replace("'", '"'))))
 
     # create directory to save images for all videos
-    video_path = Path(video_directory)
+    video_path = Path(video_path)
     crop_path = data_path/"dfdc_cropped_faces"/video_path.name
     os.makedirs(crop_path, exist_ok=True)
 
